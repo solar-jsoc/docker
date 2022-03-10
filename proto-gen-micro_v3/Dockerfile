@@ -1,4 +1,4 @@
-FROM golang:1.16 as builder
+FROM golang:1.17 as builder
 WORKDIR /tmp/proto
 ENV GOPATH=/tmp/proto
 
@@ -6,14 +6,14 @@ RUN apt-get update
 RUN apt-get install -y unzip
 
 # protoc
-RUN curl https://github.com/protocolbuffers/protobuf/releases/download/v3.15.8/protoc-3.15.8-linux-x86_64.zip -L -o protoc.zip
+RUN curl https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/protoc-3.19.4-linux-x86_64.zip -L -o protoc.zip
 RUN unzip protoc.zip
 
 # protoc-gen-go
 RUN go get github.com/gogo/protobuf/protoc-gen-gogo@v1.3.2
 
 # protoc-gen-micro
-RUN go get github.com/asim/go-micro/cmd/protoc-gen-micro/v3
+RUN go get github.com/asim/go-micro/cmd/protoc-gen-micro/v3@v3.7.0
 
 FROM busybox:1.31-glibc
 COPY --from=builder /tmp/proto/bin/protoc /usr/local/bin/protoc
