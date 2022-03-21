@@ -1,4 +1,4 @@
-FROM golang:1.17 as builder
+FROM golang:1.18 as builder
 WORKDIR /tmp/proto
 ENV GOPATH=/tmp/proto
 
@@ -10,10 +10,10 @@ RUN curl https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/p
 RUN unzip protoc.zip
 
 # protoc-gen-go
-RUN go get github.com/gogo/protobuf/protoc-gen-gogo@v1.3.2
+RUN go install github.com/gogo/protobuf/protoc-gen-gogo@v1.3.2
 
 # protoc-gen-micro
-RUN go get github.com/asim/go-micro/cmd/protoc-gen-micro/v3@v3.7.0
+RUN go install github.com/asim/go-micro/cmd/protoc-gen-micro/v3@v3.7.0
 
 FROM busybox:1.31-glibc
 COPY --from=builder /tmp/proto/bin/protoc /usr/local/bin/protoc
