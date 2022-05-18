@@ -1,4 +1,4 @@
-FROM vnc-selenium-local
+FROM solarjsoc/selenium:vnc-selenium-1.0.0-20220518
 
 USER root
 

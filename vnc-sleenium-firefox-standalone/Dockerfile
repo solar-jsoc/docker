@@ -1,4 +1,4 @@
-FROM vnc-selenium-firefox-local
+FROM solarjsoc/selenium:vnc-selenium-firefox-1.0.0-20220518
 
 USER 1200
 
