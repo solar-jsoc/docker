@@ -212,8 +212,8 @@ COPY vnc-logo.png /usr/share/images/fluxbox/ubuntu-light.png
 #============================
 # Some configuration options
 #============================
-ENV SCREEN_WIDTH 1280
-ENV SCREEN_HEIGHT 720
+ENV SCREEN_WIDTH 1366
+ENV SCREEN_HEIGHT 768
 ENV SCREEN_DEPTH 24
 ENV SCREEN_DPI 96
 ENV DISPLAY :99.0
