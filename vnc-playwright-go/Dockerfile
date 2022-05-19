@@ -8,6 +8,8 @@ RUN apt-get update -qqy \
     golang \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
+USER 1200
+
 # Installing playwright browsers with dependencies
 RUN go get github.com/playwright-community/playwright-go
 RUN go run github.com/playwright-community/playwright-go/cmd/playwright install --with-deps
